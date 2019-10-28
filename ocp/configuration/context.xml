@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context useHttpOnly="true" privileged="false">
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+
+    <!-- Uncomment this to enable Comet connection tacking (provides events
+         on session expiration as well as webapp lifecycle) -->
+    <!--
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    -->
+
+    <!-- ##DATASOURCES## -->
+   <Resource
+      name="jms/MyQCF"
+      auth="Container"
+      type="com.ibm.mq.jms.MQQueueConnectionFactory"
+      factory="com.ibm.mq.jms.MQQueueConnectionFactoryFactory"
+      description="JMS Queue Connection Factory for sending messages"
+      HOST="localhost"
+      PORT="1414"
+      CHAN="DEV.APP.SVRCONN"
+      TRAN="1"
+      QMGR="QMGR1"/>
+   <Resource
+      name="jms/MyQ"
+      auth="Container"
+      type="com.ibm.mq.jms.MQQueue"
+      factory="com.ibm.mq.jms.MQQueueFactory"
+      description="JMS Queue for receiving messages from Dialog"
+      QU="DEV.QUEUE.1"/>
+
+</Context>
