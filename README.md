@@ -2,7 +2,7 @@
 
 Run IBM MQ
 ```
-docker run --privileged --net host --env LICENSE=accept --env MQ_QMGR_NAME=QMGR1 --volume /var/example:/mnt/mqm ibmcom/mq:9
+docker run --privileged -p1414:1414 -p9443:9443 --env LICENSE=accept --env MQ_QMGR_NAME=QMGR1 --volume /var/example:/mnt/mqm ibmcom/mq:9
 ```
 
 Login IBM MQ WebConsole

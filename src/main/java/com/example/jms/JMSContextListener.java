@@ -1,4 +1,4 @@
-package com.chandra.jms;
+package com.example.jms;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
