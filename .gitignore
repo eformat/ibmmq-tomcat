@@ -5,3 +5,5 @@ target/
 .settings
 *.iml
 .sts4*
+*~
+.idea
