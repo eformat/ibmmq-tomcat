@@ -51,7 +51,6 @@ public class JMSMQListener implements MessageListener {
         }
     }
 
-    @Override
     public void onMessage(Message message) {
         String msgStr = null;
 

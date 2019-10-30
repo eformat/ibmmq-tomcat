@@ -69,6 +69,15 @@ oc patch route/ibmmq-tomcat-ibm-mq --type=json -p '[{"op":"add", "path":"/spec/t
 ```
 
 Application
+
+Update `context.xml` so that `HOST` maps to OpenShift Service
+
+```
+  HOST="ibmmq-tomcat-ibm-mq"
+```
+
+Deploy
+
 ```
 oc new-build --binary --name=tomcat
 oc start-build tomcat --from-dir=. --follow

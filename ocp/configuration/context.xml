@@ -23,7 +23,8 @@
       type="com.ibm.mq.jms.MQQueueConnectionFactory"
       factory="com.ibm.mq.jms.MQQueueConnectionFactoryFactory"
       description="JMS Queue Connection Factory for sending messages"
-      HOST="ibmmq-tomcat-ibm-mq"
+      <!--HOST="ibmmq-tomcat-ibm-mq" -->
+      HOST="localhost">
       PORT="1414"
       CHAN="DEV.APP.SVRCONN"
       TRAN="1"
