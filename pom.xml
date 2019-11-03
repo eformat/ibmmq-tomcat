@@ -8,8 +8,6 @@
     <name>ibmmq-tomcat</name>
 
     <dependencies>
-
-        <!-- log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
