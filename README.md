@@ -79,6 +79,8 @@ Update `context.xml` so that `HOST` maps to OpenShift Service
 Deploy (using s2i build)
 ```
 oc new-app registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat8-openshift:1.4~https://github.com/eformat/ibmmq-tomcat.git --strategy=source --build-env MAVEN_MIRROR_URL=http://nexus.nexus.svc.cluster.local:8081/repository/maven-public/
+oc create configmap ibmmq-tomcat --from-file=context.xml=ocp/configuration/context.xml -n ibmmq-tomcat
+oc set volume dc/ibmmq-tomcat --add --overwrite --name=ibmmq-tomcat -m /opt/webserver/conf/context.xml --sub-path=context.xml -t configmap --configmap-name=ibmmq-tomcat
 ```
 
 Deploy (using docker build and binary app)
