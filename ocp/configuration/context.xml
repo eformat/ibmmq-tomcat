@@ -17,13 +17,20 @@
     -->
 
     <!-- ##DATASOURCES## -->
-   <Resource
+
+    <!--
+      If you want no JMS Pooling, you can use IBM JMS Classes Directly:
+        type="com.ibm.mq.jms.MQQueueConnectionFactory"
+        factory="com.ibm.mq.jms.MQQueueConnectionFactoryFactory"
+      -->
+
+    <Resource
       name="jms/MyQCF"
       auth="Container"
-      type="com.ibm.mq.jms.MQQueueConnectionFactory"
-      factory="com.ibm.mq.jms.MQQueueConnectionFactoryFactory"
+      type="org.messaginghub.pooled.jms.JmsPoolConnectionFactory"
+      factory="com.example.jms.CachingMQConnectionFactory"
       description="JMS Queue Connection Factory for sending messages"
-      HOST="ibmmq-tomcat-ibm-mq"
+      HOST="localhost"
       PORT="1414"
       CHAN="DEV.APP.SVRCONN"
       TRAN="1"
